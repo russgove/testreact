@@ -24,9 +24,10 @@ var Header = React.createClass({
                     </li>
                 </ul>
             </div>
-            
+           
         );
     },
+    
     componentDidMount: function () {
         debugger;
         $(document).ready(function () {
