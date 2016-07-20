@@ -1,0 +1,11 @@
+
+
+# Dependency directory
+node_modules
+
+# spsave settings
+settings.js
+
+bower_components/
+
+dist/
