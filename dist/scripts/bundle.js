@@ -35636,28 +35636,35 @@ module.exports = Home;
 var React = require("React");
 var AuthorApi = require("../../api/AuthorApi");
 var Authors = React.createClass({displayName: "Authors",
+    getInitialState:function(){
+        return{
+            authors:[]
+        }
+    },
+    componentWillMount:function(){
+        this.setState({authors:AuthorApi.gerAllAuthors()});
+    },
     render: function () {
+        var createAuthorRow=function(author){
+
+            return(
+                React.createElement("tr", {key: author.id}, 
+                React.createElement("td", null, React.createElement("a", {href: "/#authors/"+author.id}, author.id)), 
+                React.createElement("td", null, "author.lastName")
+                )
+            )
+        };
         return (
             React.createElement("div", null, 
-                React.createElement("div", {id: "id", className: "ms-Table"}, 
-                    React.createElement("div", {className: "ms-Table-row"}, 
-                        React.createElement("span", {className: "ms-Table-rowCheck", "is-selectable": true}), 
-                        React.createElement("span", {className: "ms-Table-cell"}, "Header1"), 
-                        React.createElement("span", {className: "ms-Table-cell"}, "Header 2 2"), 
-                        React.createElement("span", {className: "ms-Table-cell"}, "Header 3 3")
+                React.createElement("table", {id: "id", className: "ms-Table"}, 
+                    React.createElement("thead", {className: "ms-Table-row"}, 
+                        React.createElement("th", {className: "ms-Table-rowCheck"}), 
+                        React.createElement("th", {className: "ms-Table-cell"}, "Header1")
+                        
                     ), 
-                    React.createElement("div", {className: "ms-Table-row is-selected "}, 
-                        React.createElement("span", {className: "ms-Table-rowCheck"}), 
-                        React.createElement("span", {className: "ms-Table-cell"}, "Col 1"), 
-                        React.createElement("span", {className: "ms-Table-cell"}, "Col 2"), 
-                        React.createElement("span", {className: "ms-Table-cell"}, "Col 3")
-                    ), 
-                     React.createElement("div", {className: "ms-Table-row"}, 
-                        React.createElement("span", {className: "ms-Table-rowCheck"}), 
-                        React.createElement("span", {className: "ms-Table-cell"}, "Col 1"), 
-                        React.createElement("span", {className: "ms-Table-cell"}, "Col 2"), 
-                        React.createElement("span", {className: "ms-Table-cell"}, "Col 3")
-                    )
+                 React.createElement("tbody", null, 
+                 this.state.authors.map(createAuthorRow, this)
+                 )
                 )
             )
         );

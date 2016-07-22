@@ -3,29 +3,36 @@
 var React = require("React");
 var AuthorApi = require("../../api/AuthorApi");
 var Authors = React.createClass({
+    getInitialState:function(){
+        return{
+            authors:[]
+        }
+    },
+    componentWillMount:function(){
+        this.setState({authors:AuthorApi.gerAllAuthors()});
+    },
     render: function () {
+        var createAuthorRow=function(author){
+
+            return(
+                <tr key={author.id}>
+                <td><a href={"/#authors/"+author.id} >{author.id}</a></td>
+                <td>author.lastName</td>
+                </tr>
+            )
+        };
         return (
             <div>
-                <div id='id' className='ms-Table'>
-                    <div className='ms-Table-row'>
-                        <span className='ms-Table-rowCheck' is-selectable></span>
-                        <span className='ms-Table-cell'>Header1</span>
-                        <span className='ms-Table-cell'>Header 2 2</span>
-                        <span className='ms-Table-cell'>Header 3 3</span>
-                    </div>
-                    <div className='ms-Table-row is-selected '>
-                        <span className='ms-Table-rowCheck'></span>
-                        <span className='ms-Table-cell'>Col 1</span>
-                        <span className='ms-Table-cell'>Col 2</span>
-                        <span className='ms-Table-cell'>Col 3</span>
-                    </div>
-                     <div className='ms-Table-row'>
-                        <span className='ms-Table-rowCheck'></span>
-                        <span className='ms-Table-cell'>Col 1</span>
-                        <span className='ms-Table-cell'>Col 2</span>
-                        <span className='ms-Table-cell'>Col 3</span>
-                    </div>
-                </div>
+                <table id='id' className='ms-Table'>
+                    <thead className='ms-Table-row'>
+                        <th className='ms-Table-rowCheck' ></th>
+                        <th className='ms-Table-cell'>Header1</th>
+                        
+                    </thead>
+                 <tbody>
+                 {this.state.authors.map(createAuthorRow, this)}
+                 </tbody>
+                </table>
             </div>
         );
     }
