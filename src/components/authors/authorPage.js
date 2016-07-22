@@ -9,7 +9,8 @@ var Authors = React.createClass({
         }
     },
     componentWillMount:function(){
-        this.setState({authors:AuthorApi.gerAllAuthors()});
+        debugger;
+        this.setState({authors:AuthorApi.getAllAuthors()});
     },
     render: function () {
         var createAuthorRow=function(author){

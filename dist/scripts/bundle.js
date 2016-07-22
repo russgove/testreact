@@ -35642,7 +35642,8 @@ var Authors = React.createClass({displayName: "Authors",
         }
     },
     componentWillMount:function(){
-        this.setState({authors:AuthorApi.gerAllAuthors()});
+        debugger;
+        this.setState({authors:AuthorApi.getAllAuthors()});
     },
     render: function () {
         var createAuthorRow=function(author){
@@ -35722,8 +35723,7 @@ var Header = React.createClass({displayName: "Header",
     },
     
     componentDidMount: function () {
-        debugger;
-        $(document).ready(function () {
+           $(document).ready(function () {
             if ($.fn.NavBar) {
                 $('.ms-NavBar').NavBar();
             }

@@ -32,8 +32,7 @@ var Header = React.createClass({
     },
     
     componentDidMount: function () {
-        debugger;
-        $(document).ready(function () {
+           $(document).ready(function () {
             if ($.fn.NavBar) {
                 $('.ms-NavBar').NavBar();
             }
