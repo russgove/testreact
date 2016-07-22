@@ -8,7 +8,11 @@ var Home = React.createClass({
                 <h1>About</h1>
                 <p>react and d flux</p>
                 <ul>
-                <li>test</li>
+                <li>React</li>
+                 <li>eslint</li>
+                 <li>browerify</li>
+                 <li>offic ui fabrice</li>
+                 <li>test</li>
                 </ul>
             </div>
         );

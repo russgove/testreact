@@ -16,7 +16,10 @@ var Header = React.createClass({
                         <a href='/' className='ms-NavBar-link'>Home</a>
                     </li>
                     <li className='ms-NavBar-item'>
-                        <a href='/#about' className='ms-NavBar-link'>About</a>
+                        <a href='/#about' className='ms-NavBar-link'>About Us</a>
+                    </li>
+  <li className='ms-NavBar-item'>
+                        <a href='/#authors' className='ms-NavBar-link'>Authors Us</a>
                     </li>
 
                     <li className='ms-NavBar-item ms-NavBar-item--right'>

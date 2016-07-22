@@ -4,6 +4,7 @@ var ReactDOM=require('React-dom');
 
 var Home=require('./components/HomePage')
 var About=require('./components/About/AboutPage')
+var Authors=require('./components/Authors/AuthorPage')
 var Header=require('./components/common/Header')
 
 var App = React.createClass({
@@ -12,7 +13,8 @@ var App = React.createClass({
         var Child
         switch(this.props.route){
             case 'about': Child=About;break;
-            default:Child=Home;break;
+             case 'authors': Child=Authors;break;
+           default:Child=Home;break;
         }
         return (
             <div>
