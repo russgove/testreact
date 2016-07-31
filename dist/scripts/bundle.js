@@ -41043,12 +41043,18 @@ var Authors = React.createClass({displayName: "Authors",
         return (
             React.createElement("div", null, 
                 React.createElement("h1", null, "Authors"), 
-                React.createElement(Link, {to: "addAuthor"}, "Add an Author"), 
+                React.createElement("a", {className: "ms-Button ms-Button-Primary", href: "/#addAuthor"}, 
+                React.createElement("span", {className: "ms-Button-Label"}, 
+                          React.createElement("i", {className: "ms-Icon ms-Icon--plus"}), " ", React.createElement("span", {className: "ms-font-m"}, "NEW!")
+                )
+                ), 
+                React.createElement("br", null), 
+              
                 React.createElement("table", {id: "id", className: "ms-Table"}, 
                     React.createElement("thead", {className: "ms-Table-row"}, 
-                        React.createElement("th", {className: "ms-Table-rowCheck"}), 
-                        React.createElement("th", {className: "ms-Table-cell"}, "Header1")
-
+                        
+                        React.createElement("th", {className: "ms-Table-cell"}, "ID"), 
+   React.createElement("th", {className: "ms-Table-cell"}, "Name")
                     ), 
                     React.createElement("tbody", null, 
                         this.state.authors.map(createAuthorRow, this) 

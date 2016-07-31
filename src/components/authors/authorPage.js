@@ -29,12 +29,18 @@ var Authors = React.createClass({
         return (
             <div>
                 <h1>Authors</h1>
-                <Link to='addAuthor'>Add an Author</Link>
+                <a className='ms-Button ms-Button-Primary' href='/#addAuthor'>
+                <span className='ms-Button-Label'>
+                          <i className="ms-Icon ms-Icon--plus"></i> <span className="ms-font-m">NEW!</span>
+                </span>
+                </a>
+                <br />
+              
                 <table id='id' className='ms-Table'>
                     <thead className='ms-Table-row'>
-                        <th className='ms-Table-rowCheck' ></th>
-                        <th className='ms-Table-cell'>Header1</th>
-
+                        
+                        <th className='ms-Table-cell'>ID</th>
+   <th className='ms-Table-cell'>Name</th>
                     </thead>
                     <tbody>
                         {this.state.authors.map(createAuthorRow, this) }
