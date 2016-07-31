@@ -2,6 +2,7 @@
 "use strict";
 var React = require("React");
 var AuthorApi = require("../../api/AuthorApi");
+
 var Authors = React.createClass({
     getInitialState:function(){
         return{
@@ -9,10 +10,11 @@ var Authors = React.createClass({
         }
     },
     componentWillMount:function(){
-        debugger;
+
         this.setState({authors:AuthorApi.getAllAuthors()});
     },
     render: function () {
+        debugger;
         var createAuthorRow=function(author){
 
             return(

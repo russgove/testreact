@@ -1,7 +1,11 @@
 
-
+/// header.js
 "use strict";
-var React = require("React");
+var React = require('react');
+var ReactRouter = require('react-router');
+var Link = ReactRouter.Link;
+
+
 var Header = React.createClass({
     render: function () {
         return (
@@ -15,24 +19,30 @@ var Header = React.createClass({
                     <li className='ms-NavBar-item'>
                         <a href='/' className='ms-NavBar-link'>Home</a>
                     </li>
+                  
                     <li className='ms-NavBar-item'>
                         <a href='/#about' className='ms-NavBar-link'>About Us</a>
                     </li>
-  <li className='ms-NavBar-item'>
-                        <a href='/#authors' className='ms-NavBar-link'>Authors Us</a>
+                    <li className='ms-NavBar-item'>
+                        <a href='/#authors' className='ms-NavBar-link'>Authors</a>
                     </li>
 
                     <li className='ms-NavBar-item ms-NavBar-item--right'>
-                        <a className='ms-NavBar-link'><i className='ms-Icon ms-Icon--upload'></i>Text</a>
+                        <a className='ms-NavBar-link'>
+                            <i className='ms-Icon ms-Icon--upload'>
+                            </i>
+                            Text
+                        </a>
                     </li>
                 </ul>
             </div>
-           
+
         );
     },
-    
+
     componentDidMount: function () {
-           $(document).ready(function () {
+
+        $(document).ready(function () {
             if ($.fn.NavBar) {
                 $('.ms-NavBar').NavBar();
             }
