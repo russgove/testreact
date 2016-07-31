@@ -41011,44 +41011,48 @@ var App = React.createClass({displayName: "App",
 module.exports = App;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./common/Header":273,"React":31,"jquery":54}],272:[function(require,module,exports){
+},{"./common/Header":274,"React":31,"jquery":54}],272:[function(require,module,exports){
 
 "use strict";
 var React = require("React");
+var ReactRouter = require('react-router');
+var Link = ReactRouter.Link;
 var AuthorApi = require("../../api/AuthorApi");
 
 var Authors = React.createClass({displayName: "Authors",
-    getInitialState:function(){
-        return{
-            authors:[]
+    getInitialState: function () {
+        return {
+            authors: []
         }
     },
-    componentWillMount:function(){
+    componentWillMount: function () {
 
-        this.setState({authors:AuthorApi.getAllAuthors()});
+        this.setState({ authors: AuthorApi.getAllAuthors() });
     },
     render: function () {
         debugger;
-        var createAuthorRow=function(author){
+        var createAuthorRow = function (author) {
 
-            return(
+            return (
                 React.createElement("tr", {key: author.id}, 
-                React.createElement("td", null, React.createElement("a", {href: "/#authors/"+author.id}, author.id)), 
-                React.createElement("td", null, "author.lastName")
+                    React.createElement("td", null, React.createElement("a", {href: "/#authors/" + author.id}, author.id)), 
+                    React.createElement("td", null, "author.lastName")
                 )
             )
         };
         return (
             React.createElement("div", null, 
+                React.createElement("h1", null, "Authors"), 
+                React.createElement(Link, {to: "addAuthor"}, "Add an Author"), 
                 React.createElement("table", {id: "id", className: "ms-Table"}, 
                     React.createElement("thead", {className: "ms-Table-row"}, 
                         React.createElement("th", {className: "ms-Table-rowCheck"}), 
                         React.createElement("th", {className: "ms-Table-cell"}, "Header1")
-                        
+
                     ), 
-                 React.createElement("tbody", null, 
-                 this.state.authors.map(createAuthorRow, this)
-                 )
+                    React.createElement("tbody", null, 
+                        this.state.authors.map(createAuthorRow, this) 
+                    )
                 )
             )
         );
@@ -41056,7 +41060,25 @@ var Authors = React.createClass({displayName: "Authors",
 });
 module.exports = Authors;
 
-},{"../../api/AuthorApi":268,"React":31}],273:[function(require,module,exports){
+},{"../../api/AuthorApi":268,"React":31,"react-router":88}],273:[function(require,module,exports){
+
+"use strict";
+var React = require("React");
+
+
+var ManageAuthorsPage = React.createClass({displayName: "ManageAuthorsPage",
+  
+    render: function () {
+        debugger;
+      
+        return (
+         React.createElement("h1", null, "Manage Authors")
+        );
+    }
+});
+module.exports = ManageAuthorsPage;
+
+},{"React":31}],274:[function(require,module,exports){
 
 /// header.js
 "use strict";
@@ -41110,7 +41132,7 @@ var Header = React.createClass({displayName: "Header",
 });
 module.exports = Header;
 
-},{"react":265,"react-router":88}],274:[function(require,module,exports){
+},{"react":265,"react-router":88}],275:[function(require,module,exports){
 "use strict";
 var React = require("React");
 var Home = React.createClass({displayName: "Home",
@@ -41125,7 +41147,7 @@ var Home = React.createClass({displayName: "Home",
 });
 module.exports = Home;
 
-},{"React":31}],275:[function(require,module,exports){
+},{"React":31}],276:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -41147,7 +41169,7 @@ var NotFoundPage = React.createClass({displayName: "NotFoundPage",
 });
 
 module.exports = NotFoundPage;
-},{"react":265,"react-router":88}],276:[function(require,module,exports){
+},{"react":265,"react-router":88}],277:[function(require,module,exports){
 'use strict';
 /// main.js
 var React = require('react');
@@ -41164,7 +41186,7 @@ var history = createHashHistory({
 debugger;
 ReactDOM.render(React.createElement(Router, {history: history, routes: routes}),
     document.getElementById('app'));
-},{"./routes":277,"history/lib/createHashHistory":43,"react":265,"react-dom":58,"react-router":88}],277:[function(require,module,exports){
+},{"./routes":278,"history/lib/createHashHistory":43,"react":265,"react-dom":58,"react-router":88}],278:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -41176,6 +41198,8 @@ debugger;
 var App = require('./components/app');
 var HomePage = require('./components/homePage');
 var AuthorPage = require('./components/authors/authorPage');
+
+var ManageAuthorsPage = require('./components/authors/manageAuthorsPage');
 //var ManageAuthorPage = require('./components/authors/manageAuthorPage');
 var AboutPage = require('./components/about/aboutPage');
 var NotFoundPage = require('./components/notFoundPage');
@@ -41184,6 +41208,7 @@ var routes = (
     React.createElement(Route, {path: "/", component: App}, 
         React.createElement(IndexRoute, {component: HomePage}), 
         React.createElement(Route, {path: "authors", component: AuthorPage}), 
+        React.createElement(Route, {path: "addAuthor", component: ManageAuthorsPage}), 
         React.createElement(Route, {path: "about", component: AboutPage}), 
 
         React.createElement(Route, {path: "*", component: NotFoundPage})
@@ -41192,4 +41217,4 @@ var routes = (
 
 module.exports = routes;
 
-},{"./components/about/aboutPage":270,"./components/app":271,"./components/authors/authorPage":272,"./components/homePage":274,"./components/notFoundPage":275,"react":265,"react-router":88}]},{},[276]);
+},{"./components/about/aboutPage":270,"./components/app":271,"./components/authors/authorPage":272,"./components/authors/manageAuthorsPage":273,"./components/homePage":275,"./components/notFoundPage":276,"react":265,"react-router":88}]},{},[277]);
