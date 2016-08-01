@@ -13,16 +13,17 @@ var Authors = React.createClass({
     },
     componentWillMount: function () {
 
+debugger;
         this.setState({ authors: AuthorApi.getAllAuthors() });
     },
     render: function () {
-        debugger;
+      
         var createAuthorRow = function (author) {
 
             return (
                 <tr key={author.id}>
                     <td><a href={"/#authors/" + author.id} >{author.id}</a></td>
-                    <td>author.lastName</td>
+                    <td>{author.lastName}</td>
                 </tr>
             )
         };

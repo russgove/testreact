@@ -21,6 +21,8 @@ paths:{
     mainJs:'./src/main.js',
     css:["node_modules/office-ui-fabric/dist/css/fabric.components.css",
          "node_modules/office-ui-fabric/dist/css/fabric.css",
+         "node_modules/toastr/build/toastr.css"
+
        
     ]
 
